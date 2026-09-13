@@ -24,7 +24,7 @@ Use this skill whenever you need to create an analysis report for code, document
 | **Trung thực tuyệt đối** | Tuyệt đối không tự bịa nguồn, số liệu, kết quả kiểm tra hay trạng thái PASS. Ưu tiên dẫn tài liệu chính thống kèm link đối với thông tin biến động hoặc đòi hỏi độ chính xác cao. |
 | **Phạm vi an toàn (Read-Only)** | Không tự ý sửa code, sửa tài liệu, thay đổi cấu hình, database hay can thiệp hệ thống nếu chưa được yêu cầu rõ ràng. |
 | **Chuẩn mực ngôn ngữ** | Báo cáo hoàn toàn bằng tiếng Việt có dấu, văn phong mạch lạc, khách quan, trung thực và phù hợp với đối tượng tiếp nhận. |
-| **Quy chuẩn kẻ bảng** | Tuân thủ `project-task-rules`: Toàn bộ bảng biểu PHẢI dùng định dạng kẻ viền đơn đầy đủ (Box-drawing `┌ ─ ┐ │ ├ ┼ ┤ └ ┴ ┘`) và BẮT BUỘC BỌC TRONG KHỐI CODE BLOCK ` ```ansi ` với TÊN CỘT IN HOA TOÀN BỘ VÀ TÔ MÀU CHỮ bằng mã màu ANSI (ví dụ: `\x1b[1;36m` Cyan, kết thúc bằng `\x1b[0m`), đường viền giữ màu mặc định để font Monospace thẳng hàng tuyệt đối. |
+| **Quy chuẩn kẻ bảng** | Tuân thủ `project-task-rules`: Toàn bộ bảng biểu PHẢI dùng định dạng **Bảng Markdown Chuẩn (GFM Table)** nguyên bản (không bọc trong khối code block) để tự động co dãn theo kích thước cửa sổ (Responsive), BẮT BUỘC chèn hàng trống đệm (`| &nbsp; | | | |`) ngăn cách giữa các dòng dữ liệu để tạo khoảng cách rõ ràng, TÊN CỘT BẮT BUỘC IN HOA TOÀN BỘ. |
 
 ---
 
@@ -47,25 +47,19 @@ Nêu kết luận quan trọng nhất, rủi ro chính và khuyến nghị ngắ
 
 ## Nguồn Dữ Liệu Và Agent
 
-```ansi
-┌────────────────────────┬────────────────────────────────────────┬──────────────────────┐
-│  [1;36mNGUỒN / AGENT [0m          │  [1;36mNỘI DUNG CUNG CẤP [0m                    │  [1;36mĐỘ TIN CẬY / GIỚI HẠN [0m │
-├────────────────────────┼────────────────────────────────────────┼──────────────────────┤
-│ ...                    │ ...                                    │ ...                  │
-└────────────────────────┴────────────────────────────────────────┴──────────────────────┘
-```
+| NGUỒN / AGENT | NỘI DUNG CUNG CẤP | ĐỘ TIN CẬY / GIỚI HẠN |
+| :--- | :--- | :---: |
+| **Nguồn 1** | Nội dung cung cấp 1 | `Đã xác minh` |
+| &nbsp; | | |
+| **Nguồn 2** | Nội dung cung cấp 2 | `Chưa xác minh` |
 
 ## Phát Hiện Chính
 
-```ansi
-┌────────────────────────┬────────────────────────────────────────┬──────────────────────┐
-│  [1;36mPHÁT HIỆN [0m              │  [1;36mBẰNG CHỨNG [0m                           │  [1;36mTRẠNG THÁI [0m           │
-├────────────────────────┼────────────────────────────────────────┼──────────────────────┤
-│ ...                    │ ...                                    │ Đã xác minh /        │
-│                        │                                        │ Suy luận /           │
-│                        │                                        │ Chưa xác minh        │
-└────────────────────────┴────────────────────────────────────────┴──────────────────────┘
-```
+| PHÁT HIỆN | BẰNG CHỨNG | TRẠNG THÁI |
+| :--- | :--- | :---: |
+| **Phát hiện 1** | Bằng chứng kiểm tra 1 | `Đã xác minh` |
+| &nbsp; | | |
+| **Phát hiện 2** | Bằng chứng kiểm tra 2 | `Suy luận` |
 
 ## So Sánh Kết Quả Từ Nhiều AI
 

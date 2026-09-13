@@ -31,17 +31,17 @@ Use this skill for implementation, bug-fix, configuration, documentation, and ma
 
 ## Báo Cáo Cuối
 
-Kết thúc mỗi task implementation bằng báo cáo ngắn gọn bằng tiếng Việt có dấu. Luôn gồm `Hoàn Thành Task`, `Công Việc Thực Hiện`, `Files & Thay Đổi` và `Xác Minh`. Định dạng các bảng báo cáo bằng bảng kẻ viền đơn đầy đủ (Box-drawing `┌ ─ ┐ │ ├ ┼ ┤ └ ┴ ┘`) và BẮT BUỘC BỌC TRONG KHỐI CODE BLOCK ` ```ansi ` với TÊN CỘT ĐƯỢC IN HOA TOÀN BỘ VÀ TÔ MÀU CHỮ bằng mã màu ANSI (ví dụ: `\x1b[1;36m` Cyan / `\x1b[1;33m` Vàng, kết thúc bằng `\x1b[0m`), đường viền giữ màu mặc định. 
+Kết thúc mỗi task implementation bằng báo cáo ngắn gọn bằng tiếng Việt có dấu. Luôn gồm `Hoàn Thành Task`, `Công Việc Thực Hiện`, `Files & Thay Đổi` và `Xác Minh`. Định dạng các bảng báo cáo bằng **Bảng Markdown Chuẩn (GFM Table)** nguyên bản (không bọc trong khối code block) để tự động co dãn linh hoạt theo kích thước cửa sổ (Responsive), TÊN CỘT BẮT BUỘC IN HOA TOÀN BỘ.
 
-* **Quy tắc hiển thị File trong bảng ANSI**:
-  - Cột `FILE` trong bảng ANSI **CHỈ GHI TÊN/ĐƯỜNG DẪN THUẦN TÚY** (plain text file path), **TUYỆT ĐỐI KHÔNG GẮN LIÊN KẾT MARKDOWN** `[text](url)` bên trong bảng ANSI (để tránh lệch ký tự làm vỡ khung viền).
-  - Phải có đường kẻ phân cách `├─┼─┤` giữa các hàng và căn chỉnh padding khoảng trắng chính xác.
-  - **Liệt kê chi tiết toàn bộ liên kết file clickable** `[tên_file](file:///...)` ở ngay bên dưới bảng `Files & Thay Đổi`.
+* **Quy tắc hiển thị và phân cách bảng**:
+  - **Phân cách dòng bằng hàng đệm trống (Spacer Row)**: BẮT BUỘC chèn một hàng trống đệm (`| &nbsp; | | | |` hoặc `| &nbsp; | |`) ngăn cách giữa các dòng dữ liệu để tạo khoảng cách vật lý rõ ràng, tránh dính chữ giữa các hàng.
+  - **Cột TRẠNG THÁI**: Chỉ sử dụng 3 giá trị chuẩn: `CREATE`, `UPDATE`, `DELETE`.
+  - **Cột FILE**: Gắn liên kết clickable trực tiếp `[tên_file](file:///...)` ngay bên trong ô của bảng.
 
 | Phần báo cáo | Nội dung bắt buộc |
 | --- | --- |
-| Công Việc Thực Hiện | Bảng viền đơn bọc trong ` ```ansi `, tên cột in hoa và đổi màu chữ, liệt kê các hạng mục công việc và kết quả đạt được. |
-| Files & Thay Đổi | Bảng viền đơn bọc trong ` ```ansi `, tên cột in hoa và đổi màu chữ, cột `FILE` ghi text đường dẫn thuần túy (không gắn link). Liệt kê danh sách liên kết file clickable chi tiết bên dưới bảng. |
+| Công Việc Thực Hiện | Bảng Markdown chuẩn co dãn, tên cột in hoa toàn bộ, có hàng trống đệm `| &nbsp; | |` ngăn cách giữa các dòng, liệt kê các hạng mục công việc và kết quả đạt được. |
+| Files & Thay Đổi | Bảng Markdown chuẩn co dãn, tên cột in hoa toàn bộ, có hàng trống đệm `| &nbsp; | | | |` ngăn cách giữa các dòng, cột `TRẠNG THÁI` dùng `CREATE`/`UPDATE`/`DELETE`, cột `FILE` gắn link clickable trực tiếp. |
 | Thay Đổi Hành Vi | Chỉ thêm khi có thay đổi có thể quan sát; nêu trước và sau. |
 | Ảnh Hưởng API | Chỉ thêm khi endpoint hoặc API contract thay đổi. |
 | Ảnh Hưởng Database | Chỉ thêm khi bảng, cột, quan hệ hoặc migration thay đổi. |
@@ -59,24 +59,21 @@ Mô tả ngắn gọn kết quả tổng thể của task vừa thực hiện.
 
 ### Công Việc Thực Hiện
 
-```ansi
-┌──────────────────────────────────────┬────────────────────────────────────────────────────────────────────┐
-│ [1;36mCÔNG VIỆC[0m                            │ [1;36mKẾT QUẢ[0m                                                            │
-├──────────────────────────────────────┼────────────────────────────────────────────────────────────────────┤
-│ ...                                  │ ...                                                                │
-└──────────────────────────────────────┴────────────────────────────────────────────────────────────────────┘
-```
+| CÔNG VIỆC | KẾT QUẢ |
+| :--- | :--- |
+| **Công việc 1** | Kết quả đạt được 1 |
+| &nbsp; | |
+| **Công việc 2** | Kết quả đạt được 2 |
 
 ### Files & Thay Đổi
 
-```ansi
-┌──────────────────┬────────────────┬────────────────────────────────────────────────┬──────────────────────┐
-│ [1;36mFILE[0m             │ [1;36mTRẠNG THÁI[0m     │ [1;36mTHAY ĐỔI CHI TIẾT[0m                              │ [1;36mẢNH HƯỞNG[0m             │
-├──────────────────┼────────────────┼────────────────────────────────────────────────┼──────────────────────┤
-│ path/to/file     │ Đã sửa         │ ...                                            │ ...                  │
-└──────────────────┴────────────────┴────────────────────────────────────────────────┴──────────────────────┘
-```
-* **Chi tiết file**: [path/to/file](file:///absolute/path/to/file)
+| FILE | TRẠNG THÁI | THAY ĐỔI CHI TIẾT | ẢNH HƯỞNG |
+| :--- | :---: | :--- | :---: |
+| [`path/to/file1`](file:///absolute/path/to/file1) | `CREATE` | Mô tả thay đổi 1 | `Không` |
+| &nbsp; | | | |
+| [`path/to/file2`](file:///absolute/path/to/file2) | `UPDATE` | Mô tả thay đổi 2 | `Không` |
+| &nbsp; | | | |
+| [`path/to/file3`](file:///absolute/path/to/file3) | `DELETE` | Mô tả thay đổi 3 | `Không` |
 
 ### Xác Minh
 
