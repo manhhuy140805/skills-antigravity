@@ -26,7 +26,8 @@ Use this skill to govern tool execution regarding file reading permissions, sens
   - **Không cần chạy git log / git blame**: Tuyệt đối KHÔNG tự ý tra cứu lịch sử commit (`git log`, `git blame`, `git show`), TRỪ KHI:
     1. Đã đọc và phân tích kỹ lưỡng các file code liên quan hiện tại mà vẫn KHÔNG tìm ra được nguyên nhân;
     2. HOẶC người dùng có yêu cầu rõ ràng về việc tra cứu lịch sử commit.
-* **Quy định về thao tác Git (Commit / Push / Branch)**:
+* **Quy định về thao tác Git (Commit / Push / Branch / Status)**:
+  - **Hạn chế sử dụng `git status`**: Tuyệt đối hạn chế và không tự ý chạy `git status` liên tục chỉ để kiểm tra trạng thái file, vì người dùng đã có thể chủ động theo dõi trạng thái các file trong IDE/workspace của họ mà không cần AI kiểm tra.
   - Chỉ khi được người dùng yêu cầu rõ ràng mới thực hiện các thao tác thay đổi trạng thái Git.
   - Tuyệt đối không tự ý: `git commit`, `git push`, `merge`, `rebase`, tạo/xóa nhánh.
   - Chỉ đề xuất commit message ở cuối task để người dùng tự quyết định.

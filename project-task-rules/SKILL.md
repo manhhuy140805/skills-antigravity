@@ -25,6 +25,7 @@ Use this skill for implementation, bug-fix, configuration, documentation, and ma
 | Dependencies | Do not add dependencies without first naming the package and explaining why an existing dependency cannot solve the task. |
 | Compatibility | Preserve backward compatibility and public contracts by default. State the impact before changing an API request/response, DTO, function signature, database schema, environment variable, or observable behavior. |
 | Reporting | Report every deletion, rename, API change, interface change, schema change, and behavior change in the final response. |
+| Prompt-scoped reporting | Phần báo cáo cuối (Công Việc Thực Hiện, Files & Thay Đổi) CHỈ báo cáo đúng các hành động và file thực sự thay đổi trong phạm vi của DUY NHẤT PROMPT ĐƯỢC GIAO ĐÓ. Tuyệt đối không lặp lại, tích lũy hoặc gom chung các công việc/file đã hoàn thành từ các lượt prompt trước. |
 | Avoid unused code | Do not create unused helpers, interfaces, DTOs, configuration, or duplicate utilities. |
 | Verification | Tự động chạy các kiểm tra phù hợp (TypeScript, linting, unit tests, focused integration tests, builds) mà không cần hỏi lại người dùng. Không được thay đổi test chỉ để pass hành vi sai. Không báo pass khi chưa chạy. Báo cáo các check chưa chạy và lý do. |
 | No overconfidence | Đừng quá tự tin vào kết quả mình làm. Tuyệt đối KHÔNG báo cáo khẳng định kiểu đã hoàn thành/sửa 100% hoặc tuyên bố không còn lỗi khi chưa được kiểm chứng thực tế qua lệnh test, build hoặc xác minh cụ thể. Luôn trung thực nêu rõ những gì đã kiểm tra và những gì chưa thể kiểm chứng để người dùng tự đánh giá. |
@@ -34,6 +35,7 @@ Use this skill for implementation, bug-fix, configuration, documentation, and ma
 Kết thúc mỗi task implementation bằng báo cáo ngắn gọn bằng tiếng Việt có dấu. Luôn gồm `Hoàn Thành Task`, `Công Việc Thực Hiện`, `Files & Thay Đổi` và `Xác Minh`. Định dạng các bảng báo cáo bằng **Bảng Markdown Chuẩn (GFM Table)** nguyên bản (không bọc trong khối code block) để tự động co dãn linh hoạt theo kích thước cửa sổ (Responsive), TÊN CỘT BẮT BUỘC IN HOA TOÀN BỘ.
 
 * **Quy tắc hiển thị và phân cách bảng**:
+  - **Phạm vi báo cáo theo từng prompt**: Bảng `Công Việc Thực Hiện` và `Files & Thay Đổi` CHỈ ghi nhận những gì thực hiện trong đúng prompt hiện tại, không lặp lại lịch sử các prompt trước.
   - **Phân cách dòng bằng hàng đệm trống (Spacer Row)**: BẮT BUỘC chèn một hàng trống đệm (`| &nbsp; | | | |` hoặc `| &nbsp; | |`) ngăn cách giữa các dòng dữ liệu để tạo khoảng cách vật lý rõ ràng, tránh dính chữ giữa các hàng.
   - **Cột TRẠNG THÁI**: Chỉ sử dụng 3 giá trị chuẩn: `CREATE`, `UPDATE`, `DELETE`.
   - **Cột FILE**: Gắn liên kết clickable trực tiếp `[tên_file](file:///...)` ngay bên trong ô của bảng.
