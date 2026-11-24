@@ -82,6 +82,7 @@ git pull origin main
 
 | Skill | Thư Mục | Mô Tả |
 | :--- | :--- | :--- |
+| **`agent-workflow`** | [`agent-workflow/`](./agent-workflow/SKILL.md) | Quy trình làm việc chuẩn mực toàn diện 7 giai đoạn: Task Ingestion, Grilling, Git Branching, TDD Implementation, Quality Verification Gates, Progress Sync, và PR Review Loop. |
 | **`frontend-backend-integration`** | [`frontend-backend-integration/`](./frontend-backend-integration/SKILL.md) | Tích hợp Frontend với Backend API (Auth, Profiles, CRUD, File Upload, Search, Pagination). Coi API contract là nguồn sự thật (Read-only). |
 | **`general-analysis-report`** | [`general-analysis-report/`](./general-analysis-report/SKILL.md) | Phân tích sâu, đánh giá rủi ro kiến trúc/mã nguồn và xuất báo cáo tiếng Việt đa chiều kèm mức độ kiểm chứng. |
 | **`git-convention`** | [`git-convention/`](./git-convention/SKILL.md) | Chuẩn hóa quy trình Git (Conventional Commits, Branch Naming, Pull Requests, Squash & Merge). |
